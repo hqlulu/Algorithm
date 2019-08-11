@@ -150,8 +150,15 @@ public class AllSortMethod {
             printResult(toSortArray);
             return;
         }
-        int[] result = mergeSortArray(toSortArray);
+
+        int[] result = mergeSortArray(toSortArray.clone());
         printResult(result);
+
+        int[] result2 = new int[toSortArray.length];
+        int start = 0;
+        int end = toSortArray.length - 1;
+        mergeSortArrayV2(toSortArray.clone(), result2, start, end);
+        printResult(result2);
     }
 
     /**
@@ -216,6 +223,46 @@ public class AllSortMethod {
 //        System.out.printf("\nreturn:");
 //        printResult(toSortArray);
         return toSortArray;
+    }
+
+    /**
+     * 归并排序的内存优化版本
+     * @param toSortArray
+     * @return
+     */
+    private static void mergeSortArrayV2(int[] toSortArray, int[] result, int start, int end){
+        if (start == end){
+            return;
+        }
+
+        // split
+        int length = end - start;
+        int mid = length >> 1;
+        int start1 = start;
+        int start2 = start + mid + 1;
+        int end1 = start + mid;
+        int end2 = end;
+
+        // merge
+        mergeSortArrayV2(toSortArray, result, start1, end1);
+        mergeSortArrayV2(toSortArray, result, start2, end2);
+
+        // 按顺序复制到结果数组
+        int k = start;
+        while (start1 <= end1 && start2 <= end2) {
+            result[k++] = toSortArray[start1] <= toSortArray[start2] ? toSortArray[start1++] : toSortArray[start2++];
+        }
+        while (start1 <= end1) {
+            result[k++] = toSortArray[start1++];
+        }
+        while (start2 <= end2) {
+            result[k++] = toSortArray[start2++];
+        }
+
+        // 复制已排序的结果到原数据
+        for (int i=start;i<=end;i++){
+            toSortArray[i] = result[i];
+        }
     }
 
     /**
