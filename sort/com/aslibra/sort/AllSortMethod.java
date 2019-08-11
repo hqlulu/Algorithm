@@ -14,17 +14,18 @@ public class AllSortMethod {
         int[] toSortArray = new int[size];
 
         // random
+        System.out.printf("\nto sort array: ");
         Random random = new Random();
         for (int i = 0; i < toSortArray.length; i++) {
             toSortArray[i] = random.nextInt(max);
-            System.out.print(toSortArray[i] + ",");
+            System.out.print(toSortArray[i] + " ");
         }
         bubbleSort(toSortArray.clone());
         insertionSort(toSortArray.clone());
 
-        int[] toSortArray2 = new int[1];
-        toSortArray2[0] = 1;
-        bubbleSort(null);
+//        int[] toSortArray2 = new int[1];
+//        toSortArray2[0] = 1;
+//        bubbleSort(null);
     }
 
     /**
@@ -102,7 +103,7 @@ public class AllSortMethod {
     private static void printResult(int[] toSortArray){
         System.out.println("\ntoSortArray = ");
         for (int i = 0; i < toSortArray.length; i++) {
-            System.out.print(toSortArray[i] + ",");
+            System.out.print(toSortArray[i] + " ");
         }
     }
 }
