@@ -31,8 +31,8 @@
       <file leaf-file-name="AllSortMethod.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/sort/com/aslibra/sort/AllSortMethod.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.75268817">
-              <caret line="28" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.67741936">
+              <caret line="165" column="39" selection-start-line="165" selection-start-column="25" selection-end-line="165" selection-end-column="39" />
               <folding />
             </state>
           </provider>
@@ -699,12 +699,12 @@
       <created>1565489544536</created>
       <option name="number" value="Default" />
       <updated>1565489544536</updated>
-      <workItem from="1565489548386" duration="6135000" />
+      <workItem from="1565489548386" duration="12072000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6135000" />
+    <option name="totallyTimeSpent" value="12072000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="6" />
@@ -751,8 +751,8 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/sort/com/aslibra/sort/AllSortMethod.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.75268817">
-          <caret line="28" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.67741936">
+          <caret line="165" column="39" selection-start-line="165" selection-start-column="25" selection-end-line="165" selection-end-column="39" />
           <folding />
         </state>
       </provider>
