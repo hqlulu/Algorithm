@@ -32,6 +32,19 @@ public class AllSortMethod {
         quickSort(quickArray, 0, quickArray.length - 1);
         Utils.printResult(quickArray);
 
+        int[] toSortArray2 = new int[size];
+
+        // random
+        System.out.printf("\nto sort array2: ");
+        for (int i = 0; i < toSortArray2.length; i++) {
+            toSortArray2[i] = random.nextInt(max);
+            System.out.print(toSortArray2[i] + " ");
+        }
+        bubbleSort(toSortArray2);
+
+        int[] combileArray = combileArray(quickArray, toSortArray2);
+        Utils.printResult(combileArray);
+
 //        int[] toSortArray2 = new int[1];
 //        toSortArray2[0] = 1;
 //        bubbleSort(null);
@@ -309,5 +322,22 @@ public class AllSortMethod {
         // 继续处理左右两边的数据
         quickSort(toSortArray, start, index_swap - 1);
         quickSort(toSortArray, index_swap + 1, end);
+    }
+
+    private static int[] combileArray(int[] array1, int[] array2){
+        int[] array = new int[array1.length + array2.length];
+        int index1 = 0;
+        int index2 = 0;
+        int index = 0;
+        while (index1<array1.length && index2<array2.length){
+            array[index++] = array1[index1] < array2[index2] ? array1[index1++] : array2[index2++];
+        }
+        while (index1<array1.length){
+            array[index++] = array1[index1++];
+        }
+        while (index2<array2.length){
+            array[index++] = array2[index2++];
+        }
+        return array;
     }
 }
