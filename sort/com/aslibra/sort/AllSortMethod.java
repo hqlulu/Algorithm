@@ -25,6 +25,11 @@ public class AllSortMethod {
         selectionSort(toSortArray.clone());
         mergeSort(toSortArray.clone());
 
+        System.out.printf("\nquickSort");
+        int[] quickArray = toSortArray.clone();
+        quickSort(quickArray, 0, quickArray.length - 1);
+        printResult(quickArray);
+
 //        int[] toSortArray2 = new int[1];
 //        toSortArray2[0] = 1;
 //        bubbleSort(null);
@@ -231,7 +236,7 @@ public class AllSortMethod {
      * @return
      */
     private static void mergeSortArrayV2(int[] toSortArray, int[] result, int start, int end){
-        if (start == end){
+        if (start >= end){
             return;
         }
 
@@ -266,11 +271,50 @@ public class AllSortMethod {
     }
 
     /**
+     * 快速排序
+     * 把小于比较值的和大于比较值的数据分治
+     * 交换位置是达到原地排序的目的,但是注意的是,不是稳定排序
+     * @param toSortArray
+     * @param start
+     * @param end
+     */
+    private static void quickSort(int[] toSortArray, int start, int end){
+        if (start >= end) {
+            return;
+        }
+
+        // 比较值
+        int privot = toSortArray[end];
+        // 记录最终交换点,小于比较值的后一个位置,所以要++
+        int index_swap = start;
+        int tmp;
+        for (int i = start; i < end; i++) {
+            // 把小的交换到前面
+            if (toSortArray[i] < privot) {
+                if (index_swap != i) {
+                    tmp = toSortArray[i];
+                    toSortArray[i] = toSortArray[index_swap];
+                    toSortArray[index_swap] = tmp;
+                }
+                // 交换的位置后移
+                index_swap++;
+            }
+        }
+        // 把比较值替换到交换点
+        tmp = toSortArray[index_swap];
+        toSortArray[index_swap] = toSortArray[end];
+        toSortArray[end] = tmp;
+        // 继续处理左右两边的数据
+        quickSort(toSortArray, start, index_swap - 1);
+        quickSort(toSortArray, index_swap + 1, end);
+    }
+
+    /**
      * 打印数组
      * @param toSortArray
      */
     private static void printResult(int[] toSortArray){
-        System.out.println("\ntoSortArray = ");
+        System.out.print("\nArray = ");
         for (int i = 0; i < toSortArray.length; i++) {
             System.out.print(toSortArray[i] + " ");
         }
