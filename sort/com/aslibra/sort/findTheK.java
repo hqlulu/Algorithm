@@ -1,9 +1,12 @@
 package com.aslibra.sort;
 
+import com.aslibra.Utils;
+
 import java.util.Random;
 
 /**
  * Created by hqlulu on 2019/8/11.
+ *
  * @author hqlulu
  */
 public class FindTheK {
@@ -22,8 +25,10 @@ public class FindTheK {
         }
         System.out.printf("\nquickSort");
         int[] quickArray = toSortArray.clone();
-        int index = findTheKElement(quickArray, 0, quickArray.length - 1, 3);
-        printResult(quickArray);
+        int k = args.length > 0 ? Integer.valueOf(args[0]) : 1;
+        System.out.printf("\nK=%d", k);
+        int index = findTheKElement(quickArray, 0, quickArray.length - 1, k);
+        Utils.printResult(quickArray);
         System.out.printf("\nindex=%d %d", index, quickArray[index]);
 
     }
@@ -32,13 +37,14 @@ public class FindTheK {
      * 快速排序
      * 把小于比较值的和大于比较值的数据分治
      * 交换位置是达到原地排序的目的,但是注意的是,不是稳定排序
+     *
      * @param array
      * @param start
      * @param end
      */
-    private static int findTheKElement(int[] array, int start, int end, int target){
-        printResult(array);
-        System.out.printf("\nfindTheKElement=%d %d %d", start, end, target);
+    private static int findTheKElement(int[] array, int start, int end, int target) {
+        Utils.printResult(array);
+//        System.out.printf("\nfindTheKElement=%d %d %d", start, end, target);
         if (start >= end) {
             return end;
         }
@@ -64,27 +70,17 @@ public class FindTheK {
         tmp = array[index_swap];
         array[index_swap] = array[end];
         array[end] = tmp;
-        System.out.printf("\nfindTheKElement swap=%d", index_swap);
+//        System.out.printf("\nfindTheKElement swap=%d", index_swap);
         int pos = array.length - index_swap;
-        if (target == pos){
+        if (target == pos) {
             return index_swap;
         }
         // 继续处理左右两边的数据
-        if (pos < target){
+        if (pos < target) {
             return findTheKElement(array, start, index_swap - 1, target);
-        }else{
+        } else {
             return findTheKElement(array, index_swap + 1, end, target);
         }
     }
 
-    /**
-     * 打印数组
-     * @param toSortArray
-     */
-    public static void printResult(int[] toSortArray){
-        System.out.print("\nArray = ");
-        for (int i = 0; i < toSortArray.length; i++) {
-            System.out.print(toSortArray[i] + " ");
-        }
-    }
 }

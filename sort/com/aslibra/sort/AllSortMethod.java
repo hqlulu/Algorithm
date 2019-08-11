@@ -1,5 +1,7 @@
 package com.aslibra.sort;
 
+import com.aslibra.Utils;
+
 import java.util.Random;
 
 /**
@@ -28,7 +30,7 @@ public class AllSortMethod {
         System.out.printf("\nquickSort");
         int[] quickArray = toSortArray.clone();
         quickSort(quickArray, 0, quickArray.length - 1);
-        printResult(quickArray);
+        Utils.printResult(quickArray);
 
 //        int[] toSortArray2 = new int[1];
 //        toSortArray2[0] = 1;
@@ -48,7 +50,7 @@ public class AllSortMethod {
             return;
         }
         if (toSortArray.length <= 1){
-            printResult(toSortArray);
+            Utils.printResult(toSortArray);
             return;
         }
         int tmp;
@@ -69,7 +71,7 @@ public class AllSortMethod {
                 break;
             }
         }
-        printResult(toSortArray);
+        Utils.printResult(toSortArray);
     }
 
     /**
@@ -86,7 +88,7 @@ public class AllSortMethod {
             return;
         }
         if (toSortArray.length <= 1){
-            printResult(toSortArray);
+            Utils.printResult(toSortArray);
             return;
         }
         int sortedIndex = 0;
@@ -102,7 +104,7 @@ public class AllSortMethod {
             }
             sortedIndex ++;
         }
-        printResult(toSortArray);
+        Utils.printResult(toSortArray);
     }
 
     /**
@@ -118,7 +120,7 @@ public class AllSortMethod {
             return;
         }
         if (toSortArray.length <= 1){
-            printResult(toSortArray);
+            Utils.printResult(toSortArray);
             return;
         }
         int min,minIndex,tmp;
@@ -138,7 +140,7 @@ public class AllSortMethod {
                 toSortArray[minIndex] = tmp;
             }
         }
-        printResult(toSortArray);
+        Utils.printResult(toSortArray);
     }
 
     /**
@@ -152,18 +154,18 @@ public class AllSortMethod {
             return;
         }
         if (toSortArray.length <= 1){
-            printResult(toSortArray);
+            Utils.printResult(toSortArray);
             return;
         }
 
         int[] result = mergeSortArray(toSortArray.clone());
-        printResult(result);
+        Utils.printResult(result);
 
         int[] result2 = new int[toSortArray.length];
         int start = 0;
         int end = toSortArray.length - 1;
         mergeSortArrayV2(toSortArray.clone(), result2, start, end);
-        printResult(result2);
+        Utils.printResult(result2);
     }
 
     /**
@@ -191,9 +193,9 @@ public class AllSortMethod {
                 array2[j++] = toSortArray[i];
             }
 //            System.out.printf("\nsplit 1:");
-//            printResult(array1);
+//            Utils.printResult(array1);
 //            System.out.printf("\nsplit 2:");
-//            printResult(array2);
+//            Utils.printResult(array2);
 
             // merge
             int[] result1 = mergeSortArray(array1);
@@ -212,7 +214,7 @@ public class AllSortMethod {
                 result[r++] = result2[r2++];
             }
 //            System.out.printf("\nmerge:");
-//            printResult(result);
+//            Utils.printResult(result);
             return result;
         }
 
@@ -222,11 +224,11 @@ public class AllSortMethod {
             tmp[0] = toSortArray[1];
             tmp[1] = toSortArray[0];
 //            System.out.printf("\nreturn:");
-//            printResult(tmp);
+//            Utils.printResult(tmp);
             return tmp;
         }
 //        System.out.printf("\nreturn:");
-//        printResult(toSortArray);
+//        Utils.printResult(toSortArray);
         return toSortArray;
     }
 
@@ -307,16 +309,5 @@ public class AllSortMethod {
         // 继续处理左右两边的数据
         quickSort(toSortArray, start, index_swap - 1);
         quickSort(toSortArray, index_swap + 1, end);
-    }
-
-    /**
-     * 打印数组
-     * @param toSortArray
-     */
-    private static void printResult(int[] toSortArray){
-        System.out.print("\nArray = ");
-        for (int i = 0; i < toSortArray.length; i++) {
-            System.out.print(toSortArray[i] + " ");
-        }
     }
 }
