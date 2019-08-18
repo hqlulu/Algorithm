@@ -49,5 +49,7 @@ public class LinkedListTest {
         linkedList.removeIndex(removeIndex);
         System.out.print("\nAfter remove "+removeIndex+" --------\nlinkedList = " + linkedList.getNext());
 
+
+
     }
 }
