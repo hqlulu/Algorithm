@@ -30,4 +30,22 @@ public class HQObject {
     public void setNumber(Integer number) {
         this.number = number;
     }
+
+    public void removeIndex(int removeIndex) {
+        int index = 0;
+        HQObject checkPos = this;
+        while (true){
+            HQObject tmp = checkPos.getNext();
+            if (tmp == null) {
+                break;
+            }
+            if (removeIndex == index++){
+                checkPos.setNext(tmp.getNext());
+                tmp.setNext(null);
+                break;
+            }
+            checkPos = tmp;
+        }
+    }
+
 }
