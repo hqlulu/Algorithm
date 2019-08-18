@@ -85,10 +85,11 @@ public class CircleLinkedList {
         LinkedObject last = this.tail;
         while (tmp != null) {
             LinkedObject startObj = this.head.getNext();
+            // need to remove obj
             if (tmp.getValue().equals(value)) {
                 // remove first one
                 if (tmp == startObj) {
-                    // only one
+                    // only one, point to self
                     if (tmp == tmp.getNext()) {
                         tmp.setNext(null);
                     }

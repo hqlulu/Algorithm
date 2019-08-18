@@ -9,7 +9,7 @@ import java.util.Random;
 public class CycleLinkedListTest {
 
     public static void main(String[] args) {
-        CircleLinkedList linkedList = new CircleLinkedList();
+        CircleLinkedList linkedList = new CircleLinkedList("8888");
         int size = 8;
         Random random = new Random();
         System.out.print("\nlinkedList = " + linkedList);
