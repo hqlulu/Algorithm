@@ -7,31 +7,24 @@ import java.util.Random;
  * @date 2019/8/18 下午3:48
  */
 public class CycleLinkedListTest {
+
     public static void main(String[] args) {
-        // 哨兵
-        HQObject linkedList = new HQObject();
-        HQObject head = linkedList;
+        CircleLinkedList linkedList = new CircleLinkedList();
         int size = 8;
         Random random = new Random();
+        System.out.print("\nlinkedList = " + linkedList);
+
+        linkedList.add(555);
+        linkedList.add(555);
         for (int i=0;i<size;i++){
-            HQObject obj = new HQObject();
-            obj.setNumber(random.nextInt() % 1000);
-            obj.setNext(linkedList.getNext());
-            head.setNext(obj);
-            head = obj;
+            linkedList.add(random.nextInt() % 1000);
+            if (i == 4) {
+                linkedList.add(555);
+            }
+            System.out.print("\nlinkedList = " + linkedList);
         }
-        System.out.print("linkedList = " + linkedList.getNext());
 
-        // remove index 0
-        int removeIndex = 2;
-        linkedList.removeIndex(removeIndex);
-        System.out.print("\nAfter remove "+removeIndex+" --------\nlinkedList = " + linkedList.getNext());
-
-        // remove index 2
-        removeIndex = 0;
-        linkedList.removeIndex(removeIndex);
-        System.out.print("\nAfter remove "+removeIndex+" --------\nlinkedList = " + linkedList.getNext());
-
-
+        linkedList.remove(555);
+        System.out.print("\nremoved 555 \nlinkedList = " + linkedList);
     }
 }

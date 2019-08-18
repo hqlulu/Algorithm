@@ -47,28 +47,26 @@ public class HQObject {
     public void removeIndex(int removeIndex) {
         int index = 0;
         HQObject checkPos = this;
-        HQObject startObj = this.getNext();
         while (true){
             HQObject tmp = checkPos.getNext();
             if (tmp == null) {
                 break;
             }
-            if (removeIndex == index++){
-                // 解决起始点变更的问题
-                if (this.getNext() == tmp) {
-                    // fix loop
-                    HQObject tmp2 = tmp;
-                    while (true) {
-                        tmp2 = tmp2.getNext();
-                        if (tmp2.getNext() == tmp) {
-                            tmp2.setNext(tmp.getNext());
-                            break;
-                        }
-                        if (tmp2.getNext() == null) {
-                            break;
-                        }
+            if (removeIndex == 0) {
+                // fix loop
+                HQObject tmp2 = tmp;
+                while (true) {
+                    tmp2 = tmp2.getNext();
+                    if (tmp2.getNext() == tmp) {
+                        tmp2.setNext(tmp.getNext());
+                        break;
+                    }
+                    if (tmp2.getNext() == null) {
+                        break;
                     }
                 }
+            }
+            if (removeIndex == index++){
                 checkPos.setNext(tmp.getNext());
                 tmp.setNext(null);
                 break;
