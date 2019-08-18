@@ -12,9 +12,7 @@ public class MutableArray {
 
     public int[] getArray() {
         int[] tmp = new int[size];
-        for (int i = 0; i < size; i++) {
-            tmp[i] = array[i];
-        }
+        System.arraycopy(array, 0, tmp, 0, size);
         return tmp;
     }
 
@@ -36,10 +34,8 @@ public class MutableArray {
         if (size == 0) {
             return;
         }
-        for (int i = index; i < size - 1; i++) {
-            array[i] = array[i + 1];
-        }
-        size--;
+        System.arraycopy(array, index+1, array, index, size - index - 1);
+        --size;
     }
 
 }

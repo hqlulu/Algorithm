@@ -51,10 +51,8 @@ public class SortedArray {
         if (index >= size) {
             return;
         }
-        for (int i = index; i < size - 1; i++) {
-            sortedArray[i] = sortedArray[i + 1];
-        }
-        size--;
+        System.arraycopy(sortedArray, index, sortedArray, index+1, size - index - 1);
+        --size;
     }
 
     public void update(int index, int number) {
