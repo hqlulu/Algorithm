@@ -11,7 +11,7 @@ public class CycleLinkedListTest {
         // 哨兵
         HQObject linkedList = new HQObject();
         HQObject head = linkedList;
-        int size = 3;
+        int size = 8;
         Random random = new Random();
         for (int i=0;i<size;i++){
             HQObject obj = new HQObject();
@@ -21,6 +21,17 @@ public class CycleLinkedListTest {
             head = obj;
         }
         System.out.print("linkedList = " + linkedList.getNext());
+
+        // remove index 0
+        int removeIndex = 2;
+        linkedList.removeIndex(removeIndex);
+        System.out.print("\nAfter remove "+removeIndex+" --------\nlinkedList = " + linkedList.getNext());
+
+        // remove index 2
+        removeIndex = 0;
+        linkedList.removeIndex(removeIndex);
+        System.out.print("\nAfter remove "+removeIndex+" --------\nlinkedList = " + linkedList.getNext());
+
 
     }
 }
