@@ -8,9 +8,17 @@ public class HQObject {
 
     private HQObject next;
     private Integer number;
+    private static HQObject firstPrintObject;
 
     @Override
     public String toString() {
+        if (firstPrintObject == null){
+            firstPrintObject = this;
+        }
+        if (firstPrintObject == next){
+            firstPrintObject = null;
+            return " HQObject{ " + number + " Looped}";
+        }
         return " HQObject{ " + number +
                 " next=>" + next + "}";
     }
